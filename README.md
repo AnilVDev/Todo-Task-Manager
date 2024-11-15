@@ -93,6 +93,11 @@ Here is an example format of the markdown file that will be exported as a secret
 
 [Exported as secret gist]
 
+
+### Personal Access Token is removed, before running you have add PAT to file export.js in Export folder of Frontend 
+
+
+
 ## Dependencies
 
 ### Backend (Django)
@@ -117,7 +122,6 @@ Here is an example format of the markdown file that will be exported as a secret
 - react-toastify@10.0.6
 - redux-toolkit@2.3.0
 
-## Personal Access Token is removed, before running you have add PAT to file export.js in Export folder of Frontend 
 
 ## Project Structure
 

@@ -144,8 +144,7 @@ function TodoList(props) {
             description,
             status
         }
-        const project_id = 10
-        dispatch(createTodo({ data, project_id }))
+        dispatch(createTodo({ data, projectId }))
     } else {
         toast.error('must have description')
     }

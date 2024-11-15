@@ -155,7 +155,6 @@ export default function SignUp(props) {
     }
     dispatch(signup(data)) 
 
-    console.log(data);
     setName('');
     setEmail('');
     setPassword('');

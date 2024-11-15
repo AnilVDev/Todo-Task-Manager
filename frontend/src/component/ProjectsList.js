@@ -195,7 +195,7 @@ function ProjectList(props) {
         <Dialog open={openDialog} onClose={handleDeleteCancel}>
             <DialogTitle>Confirm Deletion</DialogTitle>
             <DialogContent>
-            Are you sure you want to delete this task? This action cannot be undone.
+            Are you sure you want to delete this Project? This action cannot be undone.
             </DialogContent>
             <DialogActions>
             <Button onClick={handleDeleteCancel} color="primary">

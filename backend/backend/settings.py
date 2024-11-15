@@ -111,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Kolkata"
 
 USE_I18N = True
 
@@ -141,7 +141,7 @@ REST_FRAMEWORK = {
 CORS_ALLOW_ALL_ORIGINS = True
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),   
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=2),     
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=120),   
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=3),     
 
 }

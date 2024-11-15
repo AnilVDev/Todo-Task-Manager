@@ -14,7 +14,7 @@ const initialState = {
 
 export const createTodo = createAsyncThunk(
   'todos/createTodo',
-  async ({ data, project_id }, thunkAPI) => {
+  async ({ data, projectId }, thunkAPI) => {
     try {
       const tokens = JSON.parse(localStorage.getItem('tokens'));
       const accessToken = tokens?.access_token;
@@ -24,7 +24,7 @@ export const createTodo = createAsyncThunk(
           Authorization: `Bearer ${accessToken}`,
         },
       };
-      const response = await axios.post(`${API_URL}/api/projects/${project_id}/todos/`, data, config);
+      const response = await axios.post(`${API_URL}/api/projects/${projectId}/todos/`, data, config);
       return response.data;
     } catch (error) {
       if (error.response) {
@@ -88,7 +88,6 @@ export const getAllTodos = createAsyncThunk(
     'todos/deleteTodo',
     async ({project_id, todoId }, thunkAPI) => {
       try {
-        console.log({project_id, todoId})
         const tokens = JSON.parse(localStorage.getItem('tokens'));
         const accessToken = tokens?.access_token;
   
@@ -138,11 +137,13 @@ const todosSlice = createSlice({
       .addCase(createTodo.rejected, (state, action) => {
         state.loading = false;
         state.success = false;
-        if (action.payload?.description) {
-            state.error = action.payload.title.join(', ');
-          } else {
-            state.error = action.payload?.message || 'Failed to create todo';
-          }})
+        if (action.payload?.title && Array.isArray(action.payload.title)) {
+          state.error = action.payload.title.join(', ');
+      } else if (action.payload?.description) {
+          state.error = action.payload.description.join(', ');
+      } else {
+          state.error = action.payload?.message || 'Failed to create todo';
+      }})
       .addCase(getAllTodos.pending, (state) => {
         state.loading = true;
         state.error = null;
