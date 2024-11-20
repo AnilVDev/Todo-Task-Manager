@@ -76,23 +76,25 @@ The frontend will be accessible at http://localhost:3000/.
 ### Backend Testing (Django)
 The backend includes a comprehensive suite of tests to validate key functionality, including authentication, project management, and todos.
 
-Running Tests
-Ensure the virtual environment is activated.
+**Running Tests**
 
-Run the test suite:
+1. Ensure the virtual environment is activated.
 
-bash
-Copy code
-python manage.py test
-Test Details
-Authentication: Verifies token-based authentication and unauthorized access restrictions.
-Project Tests:
-Creating, updating, and deleting projects.
-Ensures validation for duplicate project titles.
-Todo Tests:
-Creating todos under specific projects.
-Validates permissions to ensure users cannot access or modify todos in unauthorized projects.
-Duplicate todo descriptions within the same project are restricted.
+2. Run the test suite:
+
+   ```bash
+   python manage.py test
+
+**Test Details**
+
+- **Authentication** : Verifies token-based authentication and unauthorized access restrictions.
+- **Project Tests** :
+   - Creating, updating, and deleting projects.
+   - Ensures validation for duplicate project titles.
+- **Todo Tests** :
+   - Creating todos under specific projects.
+   - Validates permissions to ensure users cannot access or modify todos in unauthorized projects.
+   - Duplicate todo descriptions within the same project are restricted.
 
 # Secret Gist Template
 
@@ -116,7 +118,7 @@ Here is an example format of the markdown file that will be exported as a secret
 [Exported as secret gist]
 
 
-### Personal Access Token is removed, before running you have add PAT to file export.js in Export folder of Frontend 
+### Personal Access Token is removed, before running you have to add PAT to the file (export.js) in src -> Export folder of Frontend 
 
 
 
