@@ -7,6 +7,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from .serializers import *
 from rest_framework.exceptions import PermissionDenied
+from rest_framework_simplejwt.authentication import JWTAuthentication
+
 
 class UserSignUpView(GenericAPIView):
     permission_classes = [AllowAny]
@@ -14,7 +16,7 @@ class UserSignUpView(GenericAPIView):
     def post(self, request):
         serializer = UserSerializer(data = request.data)
         if serializer.is_valid():
-            user = serializer.save()  # Save the new user
+            user = serializer.save()  
             return Response({   
                 "message": "User created successfully.",
                 "user": UserSerializer(user).data
@@ -47,6 +49,7 @@ class UserLoginView(APIView):
 class ProjectCreateListView(ListCreateAPIView):
     serializer_class = ProjectSerializer
     permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
 
     def get_queryset(self):
         return Project.objects.filter(user=self.request.user)    
@@ -58,6 +61,7 @@ class ProjectCreateListView(ListCreateAPIView):
 class ProjectDetailView(RetrieveUpdateDestroyAPIView):
     serializer_class = ProjectSerializer
     permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
 
     def get_queryset(self):
         return Project.objects.filter(user=self.request.user) 
@@ -72,6 +76,7 @@ class ProjectDetailView(RetrieveUpdateDestroyAPIView):
 class TodoCreateListView(ListCreateAPIView):
     serializer_class = TodoSerializer
     permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
 
     def get_queryset(self):
         project_id = self.kwargs['project_id']
@@ -87,6 +92,7 @@ class TodoCreateListView(ListCreateAPIView):
 class TodoDetailView(RetrieveUpdateDestroyAPIView):
     serializer_class = TodoSerializer
     permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
 
     def get_queryset(self):
         project_id = self.kwargs['project_id']
