@@ -101,21 +101,21 @@ The backend includes a comprehensive suite of tests to validate key functionalit
 Here is an example format of the markdown file that will be exported as a secret gist:
 
 
-# Project Title
+   # Project Title
 
-**Summary**: 5/6 todos completed
+   **Summary**: 5/6 todos completed
 
-## Pending
-- [ ] Prepare budget report 1
+   ## Pending
+   - [ ] Prepare budget report 1
 
-## Completed
-- [x] completed project and updated
-- [x] second todo completed
-- [x] Prepare budget report
-- [x] Prepare budget report 2
+   ## Completed
+   - [x] completed project and updated
+   - [x] second todo completed
+   - [x] Prepare budget report
+   - [x] Prepare budget report 2
 
 
-[Exported as secret gist]
+   [Exported as secret gist]
 
 
 ### Personal Access Token is removed, before running you have to add PAT to the file (export.js) in src -> Export folder of Frontend 
